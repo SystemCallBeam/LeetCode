@@ -10,10 +10,15 @@ class MyHashMap {
     
     public void put(int key, int value) {
         for (int i = 0; i < MAX_SIZE; i++) {
-            if (mykey[i] == 0 || mykey[i] == key) {
+            if (mykey[i] == key) {
+                mykey[i] = key;
+                myvalue[i] = value;
+                break;
+            } else if (mykey[i] == 0) {
                 mykey[i] = key;
                 myvalue[i] = value;
                 size++;
+                break;
             }
         }
     }
@@ -30,7 +35,13 @@ class MyHashMap {
     }
     
     public void remove(int key) {
-        
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (key == mykey[i]) {
+                size--;
+                mykey[i] = mykey[size];
+                myvalue[i] = myvalue[size];
+            }
+        }
     }
 }
 
