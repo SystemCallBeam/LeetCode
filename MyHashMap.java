@@ -5,7 +5,10 @@ class MyHashMap {
     int size = 0; // start
 
     public MyHashMap() {
-        
+        for (int i = 0; i < MAX_SIZE; i++) {
+            mykey[i] = -1;
+            myvalue[i] = -1;
+        }
     }
     
     public void put(int key, int value) {
@@ -14,7 +17,7 @@ class MyHashMap {
                 mykey[i] = key;
                 myvalue[i] = value;
                 break;
-            } else if (mykey[i] == 0) {
+            } else if (mykey[i] == -1) {
                 mykey[i] = key;
                 myvalue[i] = value;
                 size++;
@@ -27,7 +30,7 @@ class MyHashMap {
         for (int i = 0; i < MAX_SIZE; i++) {
             if (key == mykey[i]) {
                 return myvalue[i];
-            } else if (mykey[i] == 0) {
+            } else if (mykey[i] == -1) {
                 return -1;
             }
         }
@@ -40,8 +43,8 @@ class MyHashMap {
                 size--;
                 mykey[i] = mykey[size];
                 myvalue[i] = myvalue[size];
-                mykey[size] = 0;
-                myvalue[size] = 0;
+                mykey[size] = -1;
+                myvalue[size] = -1;
                 break;
             }
         }
