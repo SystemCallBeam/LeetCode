@@ -40,6 +40,9 @@ class MyHashMap {
                 size--;
                 mykey[i] = mykey[size];
                 myvalue[i] = myvalue[size];
+                mykey[size] = 0;
+                myvalue[size] = 0;
+                break;
             }
         }
     }
