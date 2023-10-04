@@ -1,7 +1,7 @@
 class MyHashMap {
     int MAX_SIZE = 1000000;
-    int[] key = new int[MAX_SIZE];
-    int[] value = new int[MAX_SIZE];
+    int[] mykey = new int[MAX_SIZE];
+    int[] myvalue = new int[MAX_SIZE];
     int size = 0; // start
     int idx = 0;
 
@@ -11,24 +11,24 @@ class MyHashMap {
     
     public void put(int key, int value) {
         do {
-            if (key == this.key[]) {
-                this.value[idx] = value;
+            if (key == mykey[idx]) {
+                myvalue[idx] = value;
             }
-        } while (idx < MAX_SIZE && this.key[++idx] != 0);
-        if (this.key[idx] == 0) {
-            this.key[idx] = key;
-            this.value[idx] = value;
+        } while (idx < MAX_SIZE && mykey[++idx] != 0);
+        if (mykey[idx] == 0) {
+            mykey[idx] = key;
+            myvalue[idx] = value;
         }
         for (int i = 0; i < MAX_SIZE; i++) {
-            
+            if ()
         }
     }
     
     public int get(int key) {
         for (int i = 0; i < MAX_SIZE; i++) {
-            if (key == this.key[i]) {
-                return value[i];
-            } else if (this.key[i] == 0) {
+            if (key == mykey[i]) {
+                return myvalue[i];
+            } else if (mykey[i] == 0) {
                 return -1;
             }
         }
