@@ -1,53 +1,23 @@
 class MyHashMap {
     int MAX_SIZE = 1000000;
-    int[] mykey = new int[MAX_SIZE];
     int[] myvalue = new int[MAX_SIZE];
-    int size = 0; // start
 
     public MyHashMap() {
         for (int i = 0; i < MAX_SIZE; i++) {
-            mykey[i] = -1;
             myvalue[i] = -1;
         }
     }
     
     public void put(int key, int value) {
-        for (int i = 0; i < MAX_SIZE; i++) {
-            if (mykey[i] == key) {
-                mykey[i] = key;
-                myvalue[i] = value;
-                break;
-            } else if (mykey[i] == -1) {
-                mykey[i] = key;
-                myvalue[i] = value;
-                size++;
-                break;
-            }
-        }
+        myvalue[key] = value;
     }
     
     public int get(int key) {
-        for (int i = 0; i < MAX_SIZE; i++) {
-            if (key == mykey[i]) {
-                return myvalue[i];
-            } else if (mykey[i] == -1) {
-                return -1;
-            }
-        }
-        return -1;
+        return myvalue[key];
     }
     
     public void remove(int key) {
-        for (int i = 0; i < MAX_SIZE; i++) {
-            if (key == mykey[i]) {
-                size--;
-                mykey[i] = mykey[size];
-                myvalue[i] = myvalue[size];
-                mykey[size] = -1;
-                myvalue[size] = -1;
-                break;
-            }
-        }
+        myvalue[key] = -1;
     }
 }
 
